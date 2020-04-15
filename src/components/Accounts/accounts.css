@@ -1,0 +1,40 @@
+.AccountCard{
+    height : 120px;
+    width : 200px;
+    background-color: aquamarine;
+    margin:25px;
+    font-size: 20px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    flex-shrink: 0;
+    border: red;
+}
+
+.AddAccButton{
+    width:150px;
+    height:27px;
+    border-radius: 5px;
+    background-color: darkcyan;
+    color : azure;
+    font-size: larger;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+}
+
+.InputField{
+    height:50px;
+    width: 300px;
+    border-radius: 5px;
+   
+}
+.AddTransactionButton{
+    width:120px;
+    height:25px;
+    background-color: darkslateblue;
+    color: aliceblue;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px;
+}

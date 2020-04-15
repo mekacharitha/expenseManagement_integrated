@@ -1,26 +1,76 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import {connect } from 'react-redux';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom';
+import Signin from './containers/Users/signin';
+import Signup from './containers/Users/signup';
+import Dashboard from './Routes/routes';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { localStorageGetItem, localStorageSetItem } from './services/utils';
+
+class App extends Component {
+
+
+  componentWillMount() {
+    let usersStorageItem = localStorageGetItem('users');
+    if (!usersStorageItem) {
+      localStorageSetItem('users', []);
+    }
+
+    let accStorageItem = localStorageGetItem("accounts");
+    if (!accStorageItem) {
+      localStorageSetItem("accounts", [])
+    }
+
+    let transcStorageItem = localStorageGetItem("transactions");
+    if (!transcStorageItem) {
+      localStorageSetItem("transactions", [])
+    }
+  }
+
+  render() {
+   let token = localStorageGetItem("token") || this.props.token;
+   console.log(" TOKEN -> ", token);
+    return (
+      <div className="App">
+        <Router>
+          {!token ?
+            
+              <Switch>
+                <Route exact path='/signin'><Signin /></Route>
+                <Route exact path="/signup"><Signup /></Route>
+                <Route path="*" render={()=>{return <Redirect to="/signin"/>}} exact/> 
+              </Switch>
+           
+            :
+            <Switch>
+              
+              <Route path="/accounts" component={Dashboard} />
+              <Route path="*" render={() => <Redirect to="/accounts" />} exact/>
+            </Switch>
+           
+             }
+
+        </Router>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    token: state.Users.token,
+  }
+}
+
+
+export default connect(mapStateToProps)(App);
+//addAccount redirect
+//edittransaction accountName
+//date in edit Transaction
+//header fixed position
