@@ -35,7 +35,7 @@ class App extends Component {
 
   render() {
    let token = localStorageGetItem("token") || this.props.token;
-   console.log(" TOKEN -> ", token);
+
     return (
       <div className="App">
         <Router>

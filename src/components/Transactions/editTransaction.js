@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link ,Redirect} from 'react-router-dom';
 import { editTransaction, getTransactionByTransactionId } from '../../services/transactions';
 import { getAccounts, getAccountNameById } from '../../services/accounts';
 import DatePicker from "react-datepicker";
@@ -11,13 +11,12 @@ class EditTransaction extends React.Component {
 
     state = {
         accounts:[],
+        onEditTransaction:false,
     }
     async componentWillMount() {
-        let transactionId = localStorage.getItem("transactionId");
-        if (!transactionId) {
-            localStorage.setItem("transactionId", 0)
-        }
-       
+       this.setState({
+           onEditTransaction:false
+       })
         let accounts =await getAccounts();
         await this.setState({
             accounts:accounts,
@@ -45,6 +44,9 @@ class EditTransaction extends React.Component {
         this.props.handleAmount('')
         this.props.handleDate('')
         Toast.success("edited transaction successfully", 500)
+        this.setState({
+            onEditTransaction:true
+        })
     }
     handleTransactionType = (e) => {
         this.props.handleTransactionType(e.target.value)
@@ -117,7 +119,8 @@ class EditTransaction extends React.Component {
                     />
                 </div>
 
-                <Link onClick={this.handleEditTransaction} to="/accounts" className="AddTranscButton" style={{ marginLeft: "50px" }}> Edit Transaction</Link>
+                <button onClick={this.handleEditTransaction} className="AddTranscButton" style={{ marginLeft: "50px" ,height:"50px" ,width:"200px"}}> Edit Transaction</button>
+                {this.state.onEditTransaction ? <Redirect to="/accounts" /> : null}
             </div>
         )
     }
