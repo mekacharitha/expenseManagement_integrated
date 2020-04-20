@@ -11,27 +11,10 @@ import Signin from './containers/Users/signin';
 import Signup from './containers/Users/signup';
 import Dashboard from './Routes/routes';
 
-import { localStorageGetItem, localStorageSetItem } from './services/utils';
+import { localStorageGetItem } from './services/utils';
 
 class App extends Component {
 
-
-  componentWillMount() {
-    let usersStorageItem = localStorageGetItem('users');
-    if (!usersStorageItem) {
-      localStorageSetItem('users', []);
-    }
-
-    let accStorageItem = localStorageGetItem("accounts");
-    if (!accStorageItem) {
-      localStorageSetItem("accounts", [])
-    }
-
-    let transcStorageItem = localStorageGetItem("transactions");
-    if (!transcStorageItem) {
-      localStorageSetItem("transactions", [])
-    }
-  }
 
   render() {
    let token = localStorageGetItem("token") || this.props.token;
@@ -70,7 +53,3 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps)(App);
-//addAccount redirect
-//edittransaction accountName
-//date in edit Transaction
-//header fixed position

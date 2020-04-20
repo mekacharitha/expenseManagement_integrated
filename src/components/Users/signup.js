@@ -6,12 +6,6 @@ import './signin.css'
 import Toast from 'light-toast'
 class Signup extends Component {
 
-    componentWillMount() {
-        let userIdStorageItem = localStorageGetItem("userId");
-        if (!userIdStorageItem) {
-            localStorageSetItem("userId", 0)
-        }
-    }
     state = {
         onSignup: false
     }

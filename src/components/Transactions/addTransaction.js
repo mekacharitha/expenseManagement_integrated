@@ -14,10 +14,6 @@ class AddTransactions extends React.Component {
         onAddTransaction: false
     }
     async  componentWillMount() {
-        let transactionId = localStorage.getItem("transactionId");
-        if (!transactionId) {
-            localStorage.setItem("transactionId", 0)
-        }
         let acc = await getAccounts()
         await this.setState({ accounts: acc })
         this.props.handleTransactionType('')
