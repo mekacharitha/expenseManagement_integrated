@@ -16,8 +16,10 @@ class Accounts extends React.Component {
     async componentWillMount() {
         let acc = await getAccounts()
         await this.setState({ accounts: acc })
+
         let trans = await getTransactions()
         await this.setState({ transactions: trans })
+        
         this.setState({ onDelete: false })
     }
     handleDelete = async () => {

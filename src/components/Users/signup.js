@@ -16,9 +16,8 @@ class Signup extends Component {
         this.props.passwordChange(event.target.value)
     }
     onSignup = async () => {
-        let userId = localStorageGetItem("userId");
+
         let user = {
-            userId: ++(userId),
             userName: this.props.userName,
             password: this.props.password
         }
