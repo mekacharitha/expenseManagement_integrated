@@ -1,8 +1,9 @@
-import React from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import { addAccount } from '../../services/accounts'
-import './accounts.css'
-import Toast from 'light-toast'
+import React from 'react';
+import {Redirect } from 'react-router-dom';
+import { addAccount } from '../../services/accounts';
+import './addAccount.css';
+import Toast from 'light-toast';
+
 class AddAccounts extends React.Component {
     state = {
         onAddAccount: false
@@ -34,23 +35,23 @@ class AddAccounts extends React.Component {
     render() {
         console.log(this.props)
         return (
-            <div style={{ marginTop: "10%", textAlign: "center", marginLeft: "100px" }}>
-                <div  >
-                    <label style={{ fontSize: "22px", fontWeight: "bold" }} >NEW ACCOUNT</label>
+            <div className="mainDivAddAcc">
+                <div >
+                    <label className="newAccLabel"> NEW ACCOUNT</label>
                     <br />
                 </div>
-                <div style={{ margin: "15px" }}>
+                <div className="elementsDiv" >
                     <label>Account Name</label>
                     <br />
                     <input type="text" onChange={this.handleAccountName} className="InputField"></input>
                 </div>
-                <div style={{ margin: "15px" }}>
+                <div className="elementsDiv">
                     <label>Starting Balance</label>
                     <br />
                     <input type="text" onChange={this.handleAccountBalance} className="InputField"></input>
                 </div>
-                <div style={{ margin: "15px", marginLeft: "60px" }}>
-                    <button onClick={this.handleAddAccount} className="AddAccButton" style={{height:"50px",width:"150px"}}>Add Account</button>
+                <div className="buttonDiv">
+                    <button onClick={this.handleAddAccount} className="AddAccButton" >Add Account</button>
                     {this.state.onAddAccount ? <Redirect to='/accounts'></Redirect> : null}
                 </div>
             </div>

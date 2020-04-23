@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect } from 'react-redux';
+import { connect } from 'react-redux';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -17,27 +17,26 @@ class App extends Component {
 
 
   render() {
-   let token = localStorageGetItem("token") || this.props.token;
+    let token = localStorageGetItem("token") || this.props.token;
 
     return (
       <div className="App">
         <Router>
           {!token ?
-            
-              <Switch>
-                <Route exact path='/signin'><Signin /></Route>
-                <Route exact path="/signup"><Signup /></Route>
-                <Route path="*" render={()=>{return <Redirect to="/signin"/>}} exact/> 
-              </Switch>
-           
+
+            <Switch>
+              <Route exact path='/signin'><Signin /></Route>
+              <Route exact path="/signup"><Signup /></Route>
+              <Route path="*" render={() => { return <Redirect to="/signin" /> }} exact />
+            </Switch>
+
             :
             <Switch>
-              
               <Route path="/accounts" component={Dashboard} />
-              <Route path="*" render={() => <Redirect to="/accounts" />} exact/>
+              <Route path="*" render={() => <Redirect to="/accounts" />} exact />
             </Switch>
-           
-             }
+
+          }
 
         </Router>
       </div>

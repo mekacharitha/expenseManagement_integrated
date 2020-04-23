@@ -1,0 +1,55 @@
+.linkDiv{
+    text-align: left ;
+}
+
+.AccountCard{
+    height : 120px;
+    width : 200px;
+    background-color: aquamarine;
+    margin:25px;
+    font-size: 20px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    flex-shrink: 0;
+}
+
+.accName{
+    font-size: larger;
+}
+
+.AddTranscButton{
+    width:150px;
+    height:27px;
+    border-radius: 5px;
+    background-color: darkcyan;
+    color : azure;
+    font-size: larger;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+}
+
+.buttonDiv{
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-right: 1200px;
+    display: flex; 
+    flex-direction : column; 
+}
+
+.transactionCard{
+    height: 50px;
+    width: 75vw;
+    justify-content: space-around;
+    display: flex;
+    border: 1px solid;
+    font-size: 20px;
+    margin: 10px;
+    padding: 20px 
+}
+
+.TransactionItem{
+    width: calc(75vh/6);
+    flex-shrink: 0;
+}

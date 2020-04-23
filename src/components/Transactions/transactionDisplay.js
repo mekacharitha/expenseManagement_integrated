@@ -44,7 +44,7 @@ class TransactionDisplay extends React.Component {
     }
     render() {
         return (
-            <div style={{ height: "50px", width: "75vw", justifyContent: "space-around", display: "flex", border: "1px solid", fontSize: "20px", margin: "10px", padding: "20px" }}>
+            <div className="transactionCard" >
                 <div className="TransactionItem"> {this.props.children.type}</div>
                 <div className="TransactionItem"> {this.props.children.description}</div>
                 <div className="TransactionItem"> {moment(this.props.children.date).format('DD-MM-YYYY')}</div>

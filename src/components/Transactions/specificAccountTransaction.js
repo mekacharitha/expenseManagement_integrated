@@ -3,10 +3,9 @@ import { deleteTransaction, getTransactionByAccountName } from '../../services/t
 import { getAccountBalance } from '../../services/accounts'
 import { Link } from 'react-router-dom'
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { getAccountNameById } from '../../services/accounts';
 import { FiEdit } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
-import './transactions.css'
+import './specificAccountTransaction.css'
 import moment from 'moment'
 import Toast from 'light-toast'
 class SpecificAccountTransaction extends React.Component {
@@ -31,18 +30,18 @@ class SpecificAccountTransaction extends React.Component {
     render() {
         return (
             <div>
-                <div style={{ textAlign: "left" }}>
+                <div className="linkDiv">
                     <Link onClick={() => { this.props.handleDivClicked(null) }} to="/accounts"><IoMdArrowRoundBack style={{ fontSize: "50px", color: "black" }} /></Link>
                 </div>
                 <div className="AccountCard">
                     {window.location.pathname.substr(38)}
-                    <b style={{ fontSize: "larger" }}> ₹ {this.state.accountBalance} </b>
+                    <b className="accName"> ₹ {this.state.accountBalance} </b>
                 </div>
-                <div style={{ marginLeft: "50px", marginTop: "10px", marginRight: "1200px", display: "flex", flexDirection: "column" }}>
+                <div className="buttonDiv">
                     <Link to={`/accounts/addtransaction/${this.props.accountClicked}`} className="AddTransactionButton">Add Transaction</Link>
                 </div>
                 {this.state.transaction.length !== 0 ? this.state.transaction.map(obj => {
-                    return <div style={{ height: "50px", width: "75vw", justifyContent: "space-around", display: "flex", border: "1px solid", fontSize: "20px", margin: "10px", padding: "20px" }}>
+                    return <div className="transactionCard">
                         <div className="TransactionItem">   {obj.type}</div>
                         <div className="TransactionItem"> {obj.description}</div>
                         <div className="TransactionItem">{moment(obj.date).format('DD-MM-YYYY')}</div>

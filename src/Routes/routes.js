@@ -7,7 +7,7 @@ import SpecificAccount from '../containers/Transactions/specificAccountTransacti
 import { connect } from 'react-redux';
 import { localStorageGetItem } from '../services/utils';
 import jwt from "jsonwebtoken";
-import { MdPersonOutline } from "react-icons/md";
+import './routes.css';
 import EditTransaction from '../containers/Transactions/editTransaction'
 import Toast from 'light-toast'
 class Dashboard extends Component {
@@ -24,12 +24,12 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-                <div style={{ display: 'flex', height: "65px", textAlign: "center", paddingTop: "20px", borderBottom: "2px solid", borderBottomColor: "#616161", justifyContent: "space-between" }}>
-                    <div style={{ textAlign: "left", marginLeft: "30px", width: "200px" }}>
-                        <label style={{ fontSize: "20px" }}>EXPENSE TRACKER</label>
+                <div className="mainDiv">
+                    <div className="labelDiv">
+                        <label className="label">EXPENSE TRACKER</label>
                     </div>
-                    <div style={{ textAlign: "right", height: "35px", width: "200px", right: "20px", display: "flex" }}>
-                        <div style={{ marginRight: "20px", padding: "5px" }}><label style={{ fontSize: "20px" }}>Hi {this.username}</label></div>
+                    <div className="rightDiv">
+                        <div className="labelDiv2"><label className="label">Hi {this.username}</label></div>
                         <button onClick={this.handleLogout}>Logout</button>
                     </div>
                 </div>
