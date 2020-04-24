@@ -1,6 +1,9 @@
 
 import AddAccounts from '../../components/Accounts/addAccount'
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import {accountNameChange,
+    accountBalanceChange,
+    addAccount} from '../../actions/accountsActionConstants';
 const mapStateToProps = (state) =>
     ({
         accountName: state.Accounts.accountName,
@@ -13,24 +16,19 @@ const mapDispatchToProps = (dispatch) => {
     return {
         accountNameChange: (value) =>
             dispatch({
-                type: "ACCOUNTNAMECHANGE",
+                type: accountNameChange,
                 payload: value
             }),
         accountBalanceChange: (value) =>
             dispatch({
-                type: "ACCOUNTBALANCECHANGE",
+                type: accountBalanceChange,
                 payload: value,
             }),
         onAddAccount: (value) =>
             dispatch({
-                type: "ONADDACCOUNT",
+                type: addAccount,
                 payload: value,
             }),
-        toRedirect: (value) =>
-            dispatch({
-                type: "REDIRECT",
-                payload: value,
-            })
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AddAccounts)

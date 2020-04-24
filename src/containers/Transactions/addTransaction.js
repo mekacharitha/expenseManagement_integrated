@@ -1,6 +1,12 @@
 
 import addTransactions from '../../components/Transactions/addTransaction'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import {handleTransactionType,
+    handleDescription,
+    handleDate,
+    handleAccountName,
+    handleAmount,
+    addTransaction} from '../../actions/transactionsActionConstants'
 const mapStateToProps = (state) =>
     ({
         description: state.Transactions.description,
@@ -18,41 +24,35 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleTransactionType: (value) =>
             dispatch({
-                type: "HANDLETRANSACTIONTYPE",
+                type: handleTransactionType,
                 payload: value
             }),
         handleDescription: (value) =>
             dispatch({
-                type: "HANDLEDESCRIPTION",
+                type: handleDescription,
                 payload: value
             }),
         handleDate: (value) =>
             dispatch({
-                type: "HANDLEDATE",
+                type: handleDate,
                 payload: value
             }),
         handleAmount: (value) =>
             dispatch({
-                type: "HANDLEAMOUNT",
+                type:handleAmount,
                 payload: value
             }),
         handleAccountName: (value) =>
             dispatch({
-                type: "HANDLEACCOUNTNAME",
+                type: handleAccountName,
                 payload: value
             }),
         onAddTransaction: (value) =>
             dispatch({
-                type: "ONADDTRANSACTION",
+                type: addTransaction,
                 payload: value
             }),
-        toRedirect: (value) =>
-            dispatch({
-                type: "REDIRECT",
-                payload: value,
-            })
-
-
+        
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(addTransactions)

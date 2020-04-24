@@ -1,3 +1,9 @@
+import {
+    userNameChange,
+    passwordChange,
+    onSignin,
+    removeToken
+} from '../actions/userActionConstants'
 const initialState = {
     userName: "",
     password: "",
@@ -7,27 +13,27 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "USERNAMECHANGE": {
+        case userNameChange: {
             return {
                 ...state,
                 userName: action.payload
             }
         }
 
-        case "PASSWORDCHANGE": {
+        case passwordChange: {
             return {
                 ...state,
                 password: action.payload
             }
         }
 
-        case "SET_TOKEN": {
+        case onSignin: {
             return {
                 ...state,
                 token: action.payload.token,
             }
         }
-        case "REMOVE_TOKEN": {
+        case removeToken: {
             return {
                 ...state,
                 token: "",

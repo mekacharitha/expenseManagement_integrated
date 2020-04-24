@@ -1,5 +1,7 @@
 import Signup from '../../components/Users/signup'
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import {userNameChange,
+    passwordChange} from '../../actions/userActionConstants'
 const mapStateToProps = (state) => ({
     userName: state.Users.userName,
     password: state.Users.password,
@@ -10,14 +12,14 @@ const mapDispatchToProps = (dispatch) => {
     return {
         userNameChange: (value) =>
             dispatch({
-                type: "USERNAMECHANGE",
+                type: userNameChange,
                 payload: value
             }),
 
 
         passwordChange: (value) =>
             dispatch({
-                type: "PASSWORDCHANGE",
+                type: passwordChange,
                 payload: value,
             })
 
