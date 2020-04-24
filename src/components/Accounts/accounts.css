@@ -23,14 +23,31 @@
     background-color: aquamarine;
     margin:25px;
     font-size: 20px;
-    display:flex;
-    flex-direction:column;
-    justify-content: space-around;
     flex-shrink: 0;
     box-shadow: 0 2px 3px #ccc;
     border:1px solid #eee ;
     box-sizing: border-box;
     cursor: pointer ;
+    border-radius: 5px;
+}
+
+.AccountCardSub{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    position: relative;
+    
+    text-align: left;
+    left:10px
+}
+
+.smileDiv{
+    position: relative;
+    text-align: right;
+    font-size: 30px;
+    color: #d1d1d1;
+    top:1px;
+    right: 10px;
 }
 
 .accNameLabel{
@@ -71,6 +88,7 @@
     display: inline-block;
     text-decoration: none;
     padding: 10px;
+    border-radius: 7.5px;
 }
 
 .transDisplayTopDiv{

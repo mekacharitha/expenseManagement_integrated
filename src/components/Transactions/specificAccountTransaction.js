@@ -42,13 +42,13 @@ class SpecificAccountTransaction extends React.Component {
                 </div>
                 {this.state.transaction.length !== 0 ? this.state.transaction.map(obj => {
                     return <div className="transactionCard">
-                        <div className="TransactionItem">   {obj.type}</div>
-                        <div className="TransactionItem"> {obj.description}</div>
-                        <div className="TransactionItem">{moment(obj.date).format('DD-MM-YYYY')}</div>
-                        <div className="TransactionItem"> {obj.amount.toLocaleString('en-IN')}</div>
+                        <div className="TransactionItem1">   {obj.type}</div>
+                        <div className="TransactionItem2"> {obj.description}</div>
+                        <div className="TransactionItem3">{moment(obj.date).format('DD-MM-YYYY')}</div>
+                        <div className="TransactionItem4"> {obj.amount.toLocaleString('en-IN')}</div>
                         {/* <div className="TransactionItem">{getAccountNameById(obj.accountId)}</div> */}
-                        <MdDelete onClick={() => this.handleDelete(obj.id)} style={{cursor:"pointer"}}/>
-                        <Link onClick={() => { this.props.onEditTransaction(obj.id) }} to={`/accounts/edittransaction/${obj.transactionId}`}><FiEdit style={{ color: "black" }} /></Link>
+                        <MdDelete className="deleteIcon" onClick={() => this.handleDelete(obj.id)} />
+                        <Link className="editIcon" onClick={() => { this.props.onEditTransaction(obj.id) }} to={`/accounts/edittransaction/${obj.transactionId}`}><FiEdit style={{ color: "black" }} /></Link>
                     </div>
                 }) : <h1>No Recent transactions</h1>}
             </div>

@@ -4,8 +4,10 @@ import { getTransactions } from '../../services/transactions';
 import TransactionDisplay from '../../containers/Transactions/transactionDisplay';
 import { getAccounts } from '../../services/accounts';
 import './accounts.css';
+import { FaRegSmileWink } from "react-icons/fa";
+
 class Accounts extends React.Component {
-    backgroundColors = [["#f7d1ab" , "#f5a85b"],[ "#5bf5c4" , "#abf7df"],["#a9edf5" , "#66eafa"],["#b1a5fa" , "#7c67f5"],["#e5a5fa" , "#d76efa"],["#f5a4da" , "#f069c3"]]
+    backgroundColors = [["#f7d1ab", "#f5a85b"], ["#5bf5c4", "#abf7df"], ["#a9edf5", "#66eafa"], ["#b1a5fa", "#7c67f5"], ["#e5a5fa", "#d76efa"], ["#f5a4da", "#f069c3"]]
     state = {
         onDelete: false,
         divClicked: "",
@@ -43,9 +45,14 @@ class Accounts extends React.Component {
                     <div className="divAccounts">
                         {this.state.accounts.map(obj => {
                             backgroundIndex = Math.floor(Math.random() * Math.floor(5));
-                            return (<div className="AccountCard" style={{ backgroundImage: "linear-gradient("+ this.backgroundColors[backgroundIndex][1] + ","+  this.backgroundColors[backgroundIndex][0]+")"}} onClick={() => { this.handleDivClicked(obj.accountName) }}>
-                                <label className="accNameLabel" > {obj.accountName} </label>
-                                <b className="balanceLabel"> ₹ {obj.accountBalance.toLocaleString('en-IN')} </b>
+                            return (<div className="AccountCard" style={{ backgroundImage: "linear-gradient(" + this.backgroundColors[backgroundIndex][1] + "," + this.backgroundColors[backgroundIndex][0] + ")" }} onClick={() => { this.handleDivClicked(obj.accountName) }}>
+                                <div className="smileDiv">
+                                    <FaRegSmileWink />
+                                </div>
+                                <div className="AccountCardSub">
+                                    <label className="accNameLabel" > {obj.accountName} </label>
+                                    <b className="balanceLabel"> ₹ {obj.accountBalance.toLocaleString('en-IN')} </b>
+                                </div>
                             </div>)
                         })}
                         <div className="AccountCard">

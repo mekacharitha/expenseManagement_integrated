@@ -8,7 +8,8 @@ import { connect } from 'react-redux';
 import { localStorageGetItem } from '../services/utils';
 import jwt from "jsonwebtoken";
 import './routes.css';
-import EditTransaction from '../containers/Transactions/editTransaction'
+import EditTransaction from '../containers/Transactions/editTransaction';
+import {AiOutlineLogout } from "react-icons/ai";
 import Toast from 'light-toast'
 class Dashboard extends Component {
     username;
@@ -30,7 +31,7 @@ class Dashboard extends Component {
                     </div>
                     <div className="rightDiv">
                         <div className="labelDiv2"><label className="label">Hi {this.username}</label></div>
-                        <button onClick={this.handleLogout}>Logout</button>
+                        <button onClick={this.handleLogout} className="logoutBtn"><AiOutlineLogout /></button>
                     </div>
                 </div>
                 <div className="content-container">
@@ -38,7 +39,7 @@ class Dashboard extends Component {
                         <Route exact path={`${this.props.match.path}/addaccount`}><AddAccounts /></Route>
                         <Route path={`${this.props.match.path}/addtransaction`}>  <AddTransaction /> </Route>
                         <Route path={`${this.props.match.path}/edittransaction`}><EditTransaction /> </Route>
-                        <Route path={`${this.props.match.path}/specificAccountTransactions`}><SpecificAccount /> </Route>
+                        <Route path={`${this.props.match.path}/specificAccountTransactions`}><SpecificAccount /></Route>
                         <Route path={`${this.props.match.path}`} exact><Accounts /></Route>
                     </Switch>
                 </div>

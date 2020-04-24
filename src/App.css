@@ -3,3 +3,27 @@
   font-family: 'Roboto Slab';
 }
 
+.Button-secondary{
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  background-color: white;
+  color: blue;
+  border-color: blue;
+  font-size: larger;
+  border-radius: 5px;
+}
+
+.Button-primary{
+width:200px;
+height:50px;
+border-radius: 5px;
+background-color: blue;
+color : white;
+font-size: larger;
+text-decoration: none;
+padding: 10px;
+}
+
+
+

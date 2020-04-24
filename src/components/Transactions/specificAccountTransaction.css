@@ -12,6 +12,7 @@
     flex-direction:column;
     justify-content: space-around;
     flex-shrink: 0;
+    border-radius: 5px;
 }
 
 .accName{
@@ -21,7 +22,7 @@
 .AddTranscButton{
     width:150px;
     height:27px;
-    border-radius: 5px;
+    border-radius: 7.5px;
     background-color: darkcyan;
     color : azure;
     font-size: larger;
@@ -41,26 +42,58 @@
     flex-direction : column; 
 }
 
+.TransactionItem1{
+    width: 175px;
+    text-transform: capitalize;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.TransactionItem2{
+    width:350px;
+    text-transform: capitalize;
+}
+
+.TransactionItem3{
+    width: 175px;
+}
+
+.TransactionItem4{
+    width:175px;
+}
+
+.TransactionItem5{
+    width:175px;
+    text-transform: capitalize;
+}
+
+.deleteIcon{
+    cursor: pointer;
+    width:75px;
+    text-align: right;
+}
+
+.editIcon{
+    width:75px;
+    text-align: right;
+    padding-right: 30px;
+}
+
 .transactionCard{
     height: 75px;
-    width: 75vw;
-    justify-content: space-around;
+    width: 1200px;
     display: flex;
     font-size: 20px;
+    justify-content: space-between;
     margin: 15px;
-    padding: 20px ;
+    padding-top: 22px ;
+    padding-bottom: 20px;
     box-shadow: 0 2px 3px #ccc;
     border:1px solid #eee ;
     box-sizing: border-box;
-
 }
 
 .nameLabel{
     text-transform: capitalize;
 }
 
-.TransactionItem{
-    width: calc(75vh/6);
-    flex-shrink: 0;
-    text-transform: capitalize;
-}

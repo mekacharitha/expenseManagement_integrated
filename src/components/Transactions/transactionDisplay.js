@@ -45,13 +45,13 @@ class TransactionDisplay extends React.Component {
     render() {
         return (
             <div className="transactionCard" >
-                <div className="TransactionItem"> {this.props.children.type}</div>
-                <div className="TransactionItem"> {this.props.children.description}</div>
-                <div className="TransactionItem"> {moment(this.props.children.date).format('DD-MM-YYYY')}</div>
-                <div className="TransactionItem"> ₹ {this.props.children.amount.toLocaleString('en-IN')}</div>
-                <div className="TransactionItem">{this.state.account}</div>
-                <MdDelete onClick={async () => await this.handleDelete(this.props.children.id)} style={{ cursor: "pointer" }} />
-                <Link onClick={() => { this.props.onEditTransaction(this.props.children.id) }} to={`/accounts/edittransaction/${this.props.children.id}`}><FiEdit style={{ color: "black" }} /></Link>
+                <div className="TransactionItem1"> {this.props.children.type}</div>
+                <div className="TransactionItem2"> {this.props.children.description}</div>
+                <div className="TransactionItem3"> {moment(this.props.children.date).format('DD-MM-YYYY')}</div>
+                <div className="TransactionItem4"> ₹ {this.props.children.amount.toLocaleString('en-IN')}</div>
+                <div className="TransactionItem5">{this.state.account}</div>
+                <MdDelete onClick={async () => await this.handleDelete(this.props.children.id)} className="deleteIcon" />
+                <Link className="editIcon" onClick={() => { this.props.onEditTransaction(this.props.children.id) }} to={`/accounts/edittransaction/${this.props.children.id}`}><FiEdit style={{ color: "black" }} /></Link>
                 {this.state.delState ? <Redirect to="/accounts" /> : null}
             </div>
         )
