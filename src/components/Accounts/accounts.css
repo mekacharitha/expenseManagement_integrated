@@ -20,23 +20,25 @@
 .AccountCard{
     height : 120px;
     width : 200px;
-    background-color: aquamarine;
-    margin:25px;
+    background:linear-gradient(#b1faf1 , #54f0dc);
+    margin:20px;
     font-size: 20px;
     flex-shrink: 0;
     box-shadow: 0 2px 3px #ccc;
-    border:1px solid #eee ;
     box-sizing: border-box;
     cursor: pointer ;
     border-radius: 5px;
-}
+    color: white;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+   }
 
 .AccountCardSub{
     display:flex;
     flex-direction:column;
     justify-content: space-around;
     position: relative;
-    
     text-align: left;
     left:10px
 }
@@ -45,9 +47,10 @@
     position: relative;
     text-align: right;
     font-size: 30px;
-    color: #d1d1d1;
+    color: #ffffff;
     top:1px;
     right: 10px;
+    opacity: 0.5;
 }
 
 .accNameLabel{
@@ -61,17 +64,17 @@
 .addAccLink{
     text-decoration: none;
     font-size: 50px;
-    color:black;
+    color:white;
 }
 
 .transactionDiv{
-    margin-top: 50px
+    margin-top: 45px
 }
 
 .transactionDiv2{
     text-align: left;
-    margin-left: 50px;
-    margin-bottom: 40px; 
+    margin-left: 185px;
+    margin-bottom: 35px; 
 }
 
 .addTransactionLabel{
@@ -82,20 +85,25 @@
 
 .AddTransactionButton{
     width:130px;
-    height:25px;
+    height:20px;
     background-color: darkslateblue;
     color: aliceblue;
     display: inline-block;
     text-decoration: none;
     padding: 10px;
-    border-radius: 7.5px;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 25px;
 }
 
 .transDisplayTopDiv{
-    margin-left: "50px";
     overflow-y: auto;
-    height: 450px;
-    margin-bottom: 60px;
+    height: 470px;
+    margin-bottom: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
