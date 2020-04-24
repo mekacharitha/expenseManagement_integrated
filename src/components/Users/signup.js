@@ -5,8 +5,8 @@ import './signup.css'
 import Toast from 'light-toast'
 class Signup extends Component {
 
-    state = {
-        onSignup: false
+    componentWillMount(){
+        this.props.toggle(false)
     }
     onUserNameChange = (event) => {
         this.props.userNameChange(event.target.value)
@@ -15,18 +15,11 @@ class Signup extends Component {
         this.props.passwordChange(event.target.value)
     }
     onSignup = async () => {
-
         let user = {
             userName: this.props.userName,
             password: this.props.password
         }
-
-        await this.setState({ onSignup: await createUser(user) })
-        if (this.state.onSignup)
-           Toast.success("signup successful",500)
-        else
-            Toast.fail("username already exists",500)
-
+        this.props.onSignUp(user)
     }
     render() {
         return (
@@ -46,7 +39,7 @@ class Signup extends Component {
                         <button className="Button" onClick={this.onSignup} style={{cursor:"pointer"}}>SIGNUP</button>
                     </div>
                 </div>
-                {this.state.onSignup ? <Redirect to='/login'></Redirect> : <Redirect to='/signup'></Redirect>}
+                {this.props.signUpToggle ? <Redirect to='/login'></Redirect> : <Redirect to='/signup'></Redirect>}
             </div>
         );
     }

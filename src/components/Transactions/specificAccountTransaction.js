@@ -10,7 +10,7 @@ import moment from 'moment'
 import Toast from 'light-toast'
 class SpecificAccountTransaction extends React.Component {
     state={
-        accountBalance:null,
+        accountBalance:'',
         transaction:[],
         accountName:''
     }
@@ -34,8 +34,8 @@ class SpecificAccountTransaction extends React.Component {
                     <Link onClick={() => { this.props.handleDivClicked(null) }} to="/accounts"><IoMdArrowRoundBack style={{ fontSize: "50px", color: "black" }} /></Link>
                 </div>
                 <div className="AccountCard">
-                    {window.location.pathname.substr(38)}
-                    <b className="accName"> ₹ {this.state.accountBalance} </b>
+                    <label className="nameLabel" >{window.location.pathname.substr(38)}</label>
+                    <b className="accName"> ₹ {(this.state.accountBalance).toLocaleString('en-IN')} </b>
                 </div>
                 <div className="buttonDiv">
                     <Link to={`/accounts/addtransaction/${this.props.accountClicked}`} className="AddTransactionButton">Add Transaction</Link>
@@ -45,7 +45,7 @@ class SpecificAccountTransaction extends React.Component {
                         <div className="TransactionItem">   {obj.type}</div>
                         <div className="TransactionItem"> {obj.description}</div>
                         <div className="TransactionItem">{moment(obj.date).format('DD-MM-YYYY')}</div>
-                        <div className="TransactionItem"> {obj.amount}</div>
+                        <div className="TransactionItem"> {obj.amount.toLocaleString('en-IN')}</div>
                         {/* <div className="TransactionItem">{getAccountNameById(obj.accountId)}</div> */}
                         <MdDelete onClick={() => this.handleDelete(obj.id)} style={{cursor:"pointer"}}/>
                         <Link onClick={() => { this.props.onEditTransaction(obj.id) }} to={`/accounts/edittransaction/${obj.transactionId}`}><FiEdit style={{ color: "black" }} /></Link>

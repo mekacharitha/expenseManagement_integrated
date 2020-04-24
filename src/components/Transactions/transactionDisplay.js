@@ -48,7 +48,7 @@ class TransactionDisplay extends React.Component {
                 <div className="TransactionItem"> {this.props.children.type}</div>
                 <div className="TransactionItem"> {this.props.children.description}</div>
                 <div className="TransactionItem"> {moment(this.props.children.date).format('DD-MM-YYYY')}</div>
-                <div className="TransactionItem"> ₹ {this.props.children.amount}</div>
+                <div className="TransactionItem"> ₹ {this.props.children.amount.toLocaleString('en-IN')}</div>
                 <div className="TransactionItem">{this.state.account}</div>
                 <MdDelete onClick={async () => await this.handleDelete(this.props.children.id)} style={{ cursor: "pointer" }} />
                 <Link onClick={() => { this.props.onEditTransaction(this.props.children.id) }} to={`/accounts/edittransaction/${this.props.children.id}`}><FiEdit style={{ color: "black" }} /></Link>
@@ -57,4 +57,4 @@ class TransactionDisplay extends React.Component {
         )
     }
 }
-export default TransactionDisplay
+export default TransactionDisplay ;

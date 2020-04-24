@@ -42,6 +42,9 @@ class Dashboard extends Component {
                         <Route path={`${this.props.match.path}`} exact><Accounts /></Route>
                     </Switch>
                 </div>
+                <div className="footer">
+                    
+                </div>
             </div>
         )
     }

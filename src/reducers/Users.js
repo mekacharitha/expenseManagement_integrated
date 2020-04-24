@@ -2,13 +2,15 @@ import {
     userNameChange,
     passwordChange,
     onSignin,
-    removeToken
+    removeToken,
+    signup
 } from '../actions/userActionConstants'
 const initialState = {
     userName: "",
     password: "",
     userId: "",
     token: null,
+    signUpToggle:false
 }
 
 const userReducer = (state = initialState, action) => {
@@ -31,6 +33,12 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 token: action.payload.token,
+            }
+        }
+        case signup: {
+            return {
+                ...state,
+                signUpToggle: action.payload,
             }
         }
         case removeToken: {

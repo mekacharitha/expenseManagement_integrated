@@ -5,8 +5,7 @@ import TransactionDisplay from '../../containers/Transactions/transactionDisplay
 import { getAccounts } from '../../services/accounts';
 import './accounts.css';
 class Accounts extends React.Component {
-    backgroundColors = ["#eaf7bc", "#cec3f7", "#c3f7f7", "#fcc5ea", "#f7b5b5", "#fc9099", "#9eb9f7", "#d0ffcc"]
-
+    backgroundColors = [["#f7d1ab" , "#f5a85b"],[ "#5bf5c4" , "#abf7df"],["#a9edf5" , "#66eafa"],["#b1a5fa" , "#7c67f5"],["#e5a5fa" , "#d76efa"],["#f5a4da" , "#f069c3"]]
     state = {
         onDelete: false,
         divClicked: "",
@@ -43,10 +42,10 @@ class Accounts extends React.Component {
                     </div>
                     <div className="divAccounts">
                         {this.state.accounts.map(obj => {
-                            backgroundIndex = Math.floor(Math.random() * Math.floor(7));
-                            return (<div className="AccountCard" style={{ backgroundColor: this.backgroundColors[backgroundIndex] }} onClick={() => { this.handleDivClicked(obj.accountName) }}>
-                                {obj.accountName}
-                                <b className="balanceLabel"> ₹ {obj.accountBalance} </b>
+                            backgroundIndex = Math.floor(Math.random() * Math.floor(5));
+                            return (<div className="AccountCard" style={{ backgroundImage: "linear-gradient("+ this.backgroundColors[backgroundIndex][1] + ","+  this.backgroundColors[backgroundIndex][0]+")"}} onClick={() => { this.handleDivClicked(obj.accountName) }}>
+                                <label className="accNameLabel" > {obj.accountName} </label>
+                                <b className="balanceLabel"> ₹ {obj.accountBalance.toLocaleString('en-IN')} </b>
                             </div>)
                         })}
                         <div className="AccountCard">
@@ -61,6 +60,7 @@ class Accounts extends React.Component {
                     </div>
                 </div>
                 <div className="transDisplayTopDiv" >
+
                     {this.state.transactions.length !== 0 ? this.state.transactions.map(item => {
                         return <TransactionDisplay onDelete={this.handleDelete}>{item}</TransactionDisplay>
                     }) : <h1>NO RECENT TRANSACTIONS</h1>}

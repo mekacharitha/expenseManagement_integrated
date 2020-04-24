@@ -13,14 +13,15 @@ import Dashboard from './Routes/routes';
 
 import { localStorageGetItem } from './services/utils';
 
-class App extends Component {
 
+class App extends Component {
 
   render() {
     let token = localStorageGetItem("token") || this.props.token;
 
     return (
       <div className="App">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap" rel="stylesheet"></link>
         <Router>
           {!token ?
 

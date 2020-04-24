@@ -27,8 +27,14 @@
     flex-direction:column;
     justify-content: space-around;
     flex-shrink: 0;
-    border: red;
+    box-shadow: 0 2px 3px #ccc;
+    border:1px solid #eee ;
+    box-sizing: border-box;
     cursor: pointer ;
+}
+
+.accNameLabel{
+    text-transform: capitalize;
 }
 
 .balanceLabel{
@@ -42,13 +48,13 @@
 }
 
 .transactionDiv{
-    margin-top: 100px
+    margin-top: 50px
 }
 
 .transactionDiv2{
     text-align: left;
     margin-left: 50px;
-    margin-bottom: 25px; 
+    margin-bottom: 40px; 
 }
 
 .addTransactionLabel{
@@ -58,7 +64,7 @@
 }
 
 .AddTransactionButton{
-    width:120px;
+    width:130px;
     height:25px;
     background-color: darkslateblue;
     color: aliceblue;
@@ -68,7 +74,10 @@
 }
 
 .transDisplayTopDiv{
-    margin-left: "50px"
+    margin-left: "50px";
+    overflow-y: auto;
+    height: 450px;
+    margin-bottom: 60px;
 }
 
 
